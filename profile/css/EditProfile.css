@@ -1,0 +1,89 @@
+:root{
+    --bgcolor:#F0F2F5;
+    --color:#1876f2;
+    --bghover:#dddfe2;
+    --bodycolor:#DADDE1;
+    --darkgray:#8D949E;
+    --red:#fa383e;
+    --green:#00A400;
+    --blue:#3578E5;
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--bodycolor);
+}
+.container{
+    width: 800px;
+    margin: 20px auto;
+    background-color:var(--bgcolor) ;
+}
+header{
+    position: relative;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+header h3{
+    text-align: center;
+    margin: 0
+}
+header i{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title .edit{
+    text-decoration: none;
+}
+.photo-edit .element , .cover-edit .element , .bio .element span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: #777;
+}
+.photo-edit .element img{
+    border-radius: 50%;
+    background-size: cover;
+}
+.cover-edit .element img{
+    width: 600px;
+    height: 260px;
+    background-size: cover;
+}
+.intro i{
+    color: var(--darkgray);
+    font-size: 18px;
+}
+.intro .in{
+    color: #000;
+    font-weight: 700;
+}
+.intro .text{
+    margin-bottom: 15px;
+}
+.hobbies .element , .featured .element{
+    padding: 10px;
+}
+button.save{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 9px;
+    color: var(--color);
+    background-color: #caddfc;
+    font-size: 16px;
+}
+.padding{
+    padding: 15px;
+}

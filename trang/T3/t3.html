@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Slider</title>
+  
+    <style>
+        body {
+            margin: auto;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000000;
+        }
+
+        .slider-container {
+            width: 80%;
+            max-width: 600px;
+            overflow: hidden;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(174, 24, 24, 0.1);
+            background-color: #000000;
+        }
+
+        .slider-wrapper {
+            
+            align-content: center;
+            align-self: center;
+            margin: auto;
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .slider-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            text-align: center;
+            background-color: #000000;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .button {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        .button:hover {
+            background-color: #e03939;
+        }
+
+        /* Ensure the container fills the screen */
+.container {
+    position: relative; /* Set a relative positioning context */
+    height: 100vh;
+    margin-right: 100px;
+    
+     /* Full viewport height */
+}
+
+/* Style the image */
+.top-left-image {
+    position: absolute; /* Position the image relative to the container */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="../../assets/img/amimo.png" alt="Top Left Image" class="top-left-image">
+    </div>
+    <div>
+        <div class="slider-container">
+            <h3 style="text-align: center; color: white;">Nghi 30s <br> FST 7</h3>
+            <div class="slider-wrapper" id="sliderWrapper">
+                
+                <div class="slider-item">
+                    <picture>
+                        <img src="T3img/1_tripush.png" alt="Chest Press Machine" style="width:70%;">
+                        <br>
+                        7 sets
+                        <br>
+                        6-8 reps
+                    </picture>
+                </div>
+
+                <div class="slider-item">
+                    <picture>
+                        <img src="T3img/2_tripull.jpg" alt="Chest Press Machine" style="width:70%;">
+                        <br>
+                        7 sets
+                        <br>
+                        6-8 reps
+                    </picture>
+                </div>
+
+                <div class="slider-item">
+                    <picture>
+                        <img src="T3img/3_skc.jpg" alt="Chest Press Machine" style="width:70%;">
+                        <br>
+                        7 sets
+                        <br>
+                        6-8 reps
+                    </picture>
+                </div>
+                
+                <div class="slider-item">
+                    <picture>
+                        <img src="T3img/4_hammmer.jpg" alt="Chest Press Machine" style="width:70%;">
+                        <br>
+                        7 sets
+                        <br>
+                        6-8 reps
+                    </picture>
+                </div>
+                
+                <div class="slider-item">
+                    <picture>
+                        <img src="T3img/5_barbell bi.jpg" alt="Chest Press Machine" style="width:70%;">
+                        <br>
+                        7 sets
+                        <br>
+                        6-8 reps
+                    </picture>
+                </div>
+                
+                <div class="slider-item">
+                    <picture>
+                        <img src="T3img/6_cbum bi.png" alt="Chest Press Machine" style="width:70%;">
+                        <br>
+                        7 sets
+                        <br>
+                        6-8 reps
+                    </picture>
+                </div>
+                
+                <div class="slider-item">
+                    <picture>
+                        <img src="T3img/7machcalf.jpg" alt="Chest Press Machine" style="width:70%;">
+                        <br>
+                        7 sets
+                        <br>
+                        6-8 reps
+                    </picture>
+                </div>
+                
+                <div class="slider-item">
+                    <picture>
+                        <img src="T3img/8_machine calf.jpg" alt="Chest Press Machine" style="width:70%;">
+                        <br>
+                        7 sets
+                        <br>
+                        6-8 reps
+                    </picture>
+                </div>
+                
+                
+                
+
+            </div>
+        </div>
+        <div class="controls">
+            
+            <a href="../../2.html">
+                <button class="button">Last page</button>
+            </a>
+            <a href="../T3/t3.html">
+                <button class="button">Next page</button>
+            </a>
+            <a href="https://music.youtube.com/playlist?list=PLwEdYuWAt1FU-e16SZ5N8ZIKqwoH6yjWO" target="_blank">
+                <button class="button">Nhac</button>
+            </a>
+            <button class="button" id="prevButton">Previous</button>
+            <button class="button" id="nextButton">Next</button>
+        </div>
+        </div>
+        
+</body>
+    <script>
+        const sliderWrapper = document.getElementById('sliderWrapper');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+
+        let currentIndex = 0;
+        const totalSlides = sliderWrapper.children.length;
+
+        function updateSliderPosition() {
+            const offset = -currentIndex * 100;
+            sliderWrapper.style.transform = `translateX(${offset}%)`;
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateSliderPosition();
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSliderPosition();
+        });
+    </script>
+</body>
+</html>

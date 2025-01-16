@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Slider</title>
+  
+    <style>
+        body {
+            margin: auto;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000000;
+            margin-bottom: 200px;
+            margin-top: 100px;
+        }
+
+        .slider-container {
+            margin-top: 100px;
+            height: 100%;
+            width: 80%;
+            max-width: 600px;
+            overflow: hidden;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(174, 24, 24, 0.1);
+            background-color: #000000;
+        }
+
+        .slider-wrapper {
+         
+            align-content: center;
+            align-self: center;
+            margin: auto;
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .slider-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            text-align: center;
+            background-color: #000000;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .button {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        .button:hover {
+            background-color: #e03939;
+        }
+
+        /* Ensure the container fills the screen */
+.container {
+    position: relative; /* Set a relative positioning context */
+    height: 100vh;
+    margin-right: 100px;
+    
+     /* Full viewport height */
+}
+
+/* Style the image */
+.top-left-image {
+    position: absolute; /* Position the image relative to the container */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 80px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+.timer-button{
+   
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="../../assets/img/amimo.png" alt="Top Left Image" class="top-left-image">
+    </div>
+    <div>
+        <div class="slider-container">
+            <h3 style="text-align: center; color: white;">Nghi 3p</h3>
+            <div class="slider-wrapper" id="sliderWrapper">
+                
+                <div class="slider-item">
+                    <picture>
+                        <img src="T2_img/1_chest press machine.webp" alt="Chest Press Machine" style="width:70%;">
+                        <br>
+                        4 sets
+                        <br>
+                        6-8 reps
+                    </picture>
+                </div>
+
+                <div class="slider-item">
+                    <picture>
+                        <img src="T2_img/2_incl chest press.jpg" alt="Chest Press Machine" style="width:100%;">
+                        <br>
+                        4 sets
+                        <br>
+                        6-8 reps
+                    </picture>
+                </div>
+
+                <div class="slider-item">
+                    <picture>
+                        <img src="T2_img/3_mach chest press.jpg" alt="Chest Press Machine" style="width:50%;">
+                        <br>
+                        4 sets
+                        <br>
+                        6-8 reps
+                    </picture>
+                </div>
+                
+                <div class="slider-item">
+                    <picture>
+                        <img src="T2_img/4_incl mch press.jpg" alt="Chest Press Machine" style="width:100%;">
+                         <br>
+                        4 sets
+                        <br>
+                        6-8 reps
+                    </picture>
+                </div>
+                
+                <div class="slider-item">
+                    <picture>
+                        <img src="T2_img/5_incl chest fly.png" alt="Chest Press Machine" style="width:100%;">
+                        <br>
+                        4 sets
+                        <br>
+                        6-8 reps
+                    </picture>
+                </div>
+                
+                <div class="slider-item">
+                    <picture>
+                        <img src="T2_img/6_cable chest fly.webp" alt="Chest Press Machine" style="width:100%;">
+                        <br>
+                        4 sets
+                        <br>
+                        6-8 reps
+                    </picture>
+                </div>
+                
+                <div class="slider-item">
+                    <picture>
+                        <img src="T2_img/7_shoulder fly.webp" alt="Chest Press Machine" style="width:100%;">
+                        <br>
+                        4 sets
+                        <br>
+                        10-12 reps
+                    </picture>
+                </div>
+                
+                <div class="slider-item">
+                    <picture>
+                        <img src="T2_img/8_cable sh fly.jpg" alt="Chest Press Machine" style="width:100%;">
+                        <br>
+                        4 sets
+                        <br>
+                        10-12 reps
+                    </picture>
+                </div>
+                
+                <div class="slider-item">
+                    <picture>
+                        <img src="T2_img/9_sh mach fly.png" alt="Chest Press Machine" style="width:100%;">
+                        <br>
+                        4 sets
+                        <br>
+                        10-12 reps
+                    </picture>
+                </div>
+                
+
+            </div>
+        </div>
+        <h1 style="color: white; text-align: center;">Persistent Timer</h1>
+    <p id="timerDisplay" style="color: #fff; text-align: center;">00:00:00</p>
+    <button class="timer-button" onclick="startTimer()">Start</button>
+    <button class="timer-button" onclick="stopTimer()">Stop</button>
+    <button class="timer-button"onclick="resetTimer()">Reset</button>
+    
+        <div class="controls">
+            
+            <a href="../../2.html">
+                <button class="button">Last page</button>
+            </a>
+            <a href="../T3/t3.html">
+                <button class="button">Next page</button>
+            </a>
+            <a href="https://music.youtube.com/playlist?list=PLwEdYuWAt1FU-e16SZ5N8ZIKqwoH6yjWO" target="_blank">
+                <button class="button">Nhac</button>
+            </a>
+            <button class="button" id="prevButton">Previous</button>
+            <button class="button" id="nextButton">Next</button>
+        </div>
+        </div>
+        
+</body>
+    <script>
+        const sliderWrapper = document.getElementById('sliderWrapper');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+
+        let currentIndex = 0;
+        const totalSlides = sliderWrapper.children.length;
+
+        function updateSliderPosition() {
+            const offset = -currentIndex * 100;
+            sliderWrapper.style.transform = `translateX(${offset}%)`;
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateSliderPosition();
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSliderPosition();
+        });
+    </script>
+    <script>
+        let timerInterval;
+        let startTime;
+
+        // Initialize the timer
+        function initializeTimer() {
+            const savedStartTime = localStorage.getItem('startTime');
+            if (savedStartTime) {
+                startTime = new Date(savedStartTime);
+                startTimer();
+            } else {
+                startTime = null;
+                document.getElementById('timerDisplay').textContent = '00:00:00';
+            }
+        }
+
+        // Start the timer
+        function startTimer() {
+            if (!startTime) {
+                startTime = new Date();
+                localStorage.setItem('startTime', startTime.toISOString());
+            }
+
+            timerInterval = setInterval(() => {
+                const now = new Date();
+                const elapsed = Math.floor((now - new Date(startTime)) / 1000);
+
+                const hours = Math.floor(elapsed / 3600).toString().padStart(2, '0');
+                const minutes = Math.floor((elapsed % 3600) / 60).toString().padStart(2, '0');
+                const seconds = (elapsed % 60).toString().padStart(2, '0');
+
+                document.getElementById('timerDisplay').textContent = `${hours}:${minutes}:${seconds}`;
+            }, 1000);
+        }
+
+        // Stop the timer
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+
+        // Reset the timer
+        function resetTimer() {
+            clearInterval(timerInterval);
+            startTime = null;
+            localStorage.removeItem('startTime');
+            document.getElementById('timerDisplay').textContent = '00:00:00';
+        }
+
+        // Initialize on page load
+        window.onload = initializeTimer;
+    </script>
+</body>
+</html>

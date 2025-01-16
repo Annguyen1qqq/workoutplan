@@ -1,0 +1,12 @@
+
+form{
+    text-align: center;
+    padding-top: 30px;
+}
+ li, a, button{
+     font-family: 'Courier New', Courier, monospace;
+     font-weight: 500;
+     font-size: 16px;
+     color:cornsilk;
+     text-decoration: none;
+ }

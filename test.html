@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persistent Timer</title>
+</head>
+<body>
+    <h1>Persistent Timer</h1>
+    <p id="timerDisplay">00:00:00</p>
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="resetTimer()">Reset</button>
+
+    <script>
+        let timerInterval;
+        let startTime;
+
+        // Initialize the timer
+        function initializeTimer() {
+            const savedStartTime = localStorage.getItem('startTime');
+            if (savedStartTime) {
+                startTime = new Date(savedStartTime);
+                startTimer();
+            } else {
+                startTime = null;
+                document.getElementById('timerDisplay').textContent = '00:00:00';
+            }
+        }
+
+        // Start the timer
+        function startTimer() {
+            if (!startTime) {
+                startTime = new Date();
+                localStorage.setItem('startTime', startTime.toISOString());
+            }
+
+            timerInterval = setInterval(() => {
+                const now = new Date();
+                const elapsed = Math.floor((now - new Date(startTime)) / 1000);
+
+                const hours = Math.floor(elapsed / 3600).toString().padStart(2, '0');
+                const minutes = Math.floor((elapsed % 3600) / 60).toString().padStart(2, '0');
+                const seconds = (elapsed % 60).toString().padStart(2, '0');
+
+                document.getElementById('timerDisplay').textContent = `${hours}:${minutes}:${seconds}`;
+            }, 1000);
+        }
+
+        // Stop the timer
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+
+        // Reset the timer
+        function resetTimer() {
+            clearInterval(timerInterval);
+            startTime = null;
+            localStorage.removeItem('startTime');
+            document.getElementById('timerDisplay').textContent = '00:00:00';
+        }
+
+        // Initialize on page load
+        window.onload = initializeTimer;
+    </script>
+</body>
+</html>

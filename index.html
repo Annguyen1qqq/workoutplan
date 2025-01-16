@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="styles/trang1/m.css">
+    <link rel="stylesheet" href="styles/trang1/n.css">
+    <link rel="stylesheet" href="styles/trang1/s.css">
+    <link rel="icon" href="1.jpeg">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+     
+</head>
+<body>
+        <div class="container">
+
+                <div class="overlay">
+                    <p class="screen">Welcome</p>
+                    <div class="intro">
+                            <button class="myBtn" onclick="fadeOut()">BẤM VÀO</button>
+                    </div>
+                </div>
+
+
+<div class="content">
+        <h1 align="center" >Nhập mật khẩu</h1>
+        <br>
+        <br>
+    
+        <div class="container">
+        <form class="passform" action="2.html" onsubmit="return passcheck()"><p style="color:bla">Trong đây có những thông tin cần được bảo mật nên là mập mật khẩu đê.</p>
+        <input type="password" required id="pass1" placeholder="Nhập Tên Tk Làm Cái Này(không viết hoa)" size="55" >
+        <input id="o1" type="submit">
+        
+        </form>
+        </div>
+        </div>
+
+            <script>
+            
+            function fadeOut() {
+
+            TweenMax.to(".myBtn", 1, {
+                y: -100,
+                opacity: 0
+            });
+
+            TweenMax.to(".screen", 2, {
+                y: -400,
+                opacity: 0,
+                ease: Power2.easeInOut,
+                delay: 2
+            });
+
+            TweenMax.from(".overlay", 2, {
+                ease: Power2.easeInOut
+            });
+           
+            TweenMax.to(".overlay", 2, {
+                delay: 2.6,
+                top: '-110%',
+                ease: Expo.easeInOut
+            });
+            
+            TweenMax.to(".overlay-2", 2, {
+                delay: 3,
+                top: "110%",
+                ease: Expo.easeInOut
+            });
+            
+            TweenMax.from(".content", 2, {
+                delay: 3.2,
+                opacity: 0,
+                ease: Power2.easeInOut      
+            });   
+            
+            TweenMax.to(".content", 2,{
+                opacity: 1,
+                y: -300,
+                delay: 3.2,
+                ease: Power2.easeInOut
+            });
+            };
+
+
+
+
+
+            </script>
+  <script src="scripts/1.js"></script>
+</body>
+</html>
